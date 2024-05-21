@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Foodwagon &amp; Business Templatee</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{%static 'assets/img/favicons/apple-touch-icon.png'%}  ">  
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicons/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'assets/img/favicons/favicon-16x16.png'%}">
+    <link rel="shortcut icon" type="image/x-icon" href="{%static 'assets/img/favicons/favicon.ico'%}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json'%}">
+    <meta name="msapplication-TileImage" content="{%static 'assets/img/favicons/mstile-150x150.png'%}">
+    <meta name="theme-color" content="#ffffff">
+<!-- fount awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+  />
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <!-- <link href="assets/css/theme.css" rel="stylesheet" /> -->
+    <link href="{%static 'assets/css/theme.css'%}" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="{%static 'css/styles.css'%}" /> -->
+
+
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand d-inline-flex" href="{%url  'custumer-home'%}" ><img class="d-inline-block" src="{%static 'assets/img/gallery/logo.svg'%}" alt="logo" /><span class="text-1000 fs-3 fw-bold ms-2 text-gradient">foodapp</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
+            <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
+              <!-- order -->
+             <a href="{%url 'order-summary'%}"><i class="fa-solid fa-rectangle-list"></i></a>
+
+              <!-- <p class="mb-0 fw-bold text-lg-center"> <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal"> </span><span></span></p> -->
+            </div>
+            
+            
+            <!-- cart   -->
+            <a href="{%url 'cart-list'%}"> <i class="bx bx-cart"></i></a>
+              <!-- ============ -->
+              <!-- logout button -->
+
+              <a href="{%url 'signout'%}"><button class="btn btn-white  text-warning" > <i class="fas fa-user me-2"></i>Logout</button></a>
+              <!-- ==================== -->
+            
+          </div>
+        </div>
+      </nav>
+      <section class="py-5 overflow-hidden bg-primary" id="home">
+        <div class="container">
+          <div class="row flex-center">
+            <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-8 mt-md-0"><a class="img-landing-banner" href="#!"><img class="img-fluid" src="{%static 'assets/img/gallery/hero-header.png'%}" alt="hero-header" /></a></div>
+            <div class="col-md-7 col-lg-6 py-8 text-md-start text-center">
+              <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">Are you starving?</h1>
+              <h1 class="text-800 mb-5 fs-4">Within a few clicks, find meals that <br class="d-none d-xxl-block" /> are accessible near you</h1>
+              <!-- <div class="card w-xxl-75">
+                <div class="card-body">
+                  <div class="tab-content mt-3" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                      <form class="row gx-2 gy-2 align-items-center">
+                        <div class="col">
+
+                            resturant filter
+                            <div class="input-group-icon"><i class="fas fa-map-marker-alt text-danger input-box-icon"></i>
+                              <label class="visually-hidden" for="inputDelivery">Resturant name</label>
+                              <input class="form-control input-box form-foodwagon-control" id="inputDelivery" type="text" placeholder="resturant name" />
+                            </div>
+                          </div>
+                          <div class="d-grid gap-3 col-sm-auto">
+                            <button class="btn btn-danger" type="submit">Find Restaurants</button>
+                          </div>
+                          resturant filter ends
+                        </form>
+                      </div>
+                      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <form class="row gx-4 gy-2 align-items-center">
+                          <div class="col">
+                            <div class="input-group-icon"><i class="fas fa-map-marker-alt text-danger input-box-icon"></i>
+                              <label class="visually-hidden" for="inputPickup">Address</label>
+                              <input class="form-control input-box form-foodwagon-control" id="inputPickup" type="text" placeholder="Enter Your Address" />
+                            </div>
+                          </div>
+                          <div class="d-grid gap-3 col-sm-auto">
+                            <button class="btn btn-danger" type="submit">Find Food</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> how does it work section begin ============================-->
+      <section class="py-0 bg-primary-gradient">
+
+        <div class="container">
+          <div class="row justify-content-center g-0">
+            <div class="col-xl-9">
+              <div class="col-lg-6 text-center mx-auto mb-3 mb-md-5 mt-4">
+                <h5 class="fw-bold text-danger fs-3 fs-lg-5 lh-sm my-6">How does it work</h5>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-md-3 mb-6">
+                  <div class="text-center"><img class="shadow-icon" src="{%static 'assets/img/gallery/pizzahub-logo.png'%}" height="112" alt="..." />
+                    <h5 class="mt-4 fw-bold">Select Resturant</h5>
+                    <p class="mb-md-0">Choose the resturant where you want to buy food.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3 mb-6">
+                  <div class="text-center"><img class="shadow-icon" src="{%static 'assets/img/gallery/order.png'%}" height="112" alt="..." />
+                    <h5 class="mt-4 fw-bold">Choose order</h5>
+                    <p class="mb-md-0">Check over hundreds of menus to pick your favorite food</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3 mb-6">
+                  <div class="text-center"><img class="shadow-icon" src="{%static 'assets/img/gallery/pay.png'%}" height="112" alt="..." />
+                    <h5 class="mt-4 fw-bold"> Choose Payment </h5>
+                    <p class="mb-md-0">It's quick, safe, and simple. Select several methods of payment</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3 mb-6">
+                  <div class="text-center"><img class="shadow-icon" src="{%static 'assets/img/gallery/meals.png'%}" height="112" alt="..." />
+                    <h5 class="mt-4 fw-bold">Enjoy meals</h5>
+                    <p class="mb-md-0">Food is made and delivered directly to your home.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+
+      <section id="testimonial">
+        <div class="container">
+          <div class="row h-100">
+            <div class="col-lg-7 mx-auto text-center mb-2">
+              <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-2">Restaurants</h5>
+            </div>
+      
+          
+        </div>
+      </section>
+
+
+      <!-- test sj -->
+     <div class="container">
+      <div class="row">
+
+
+        {%for r in data%}
+            
+        <div class="col-4">
+          <div class="card mb-5">
+            <img src="{{r.image.url}}" class="card-img-top" alt="..." height="300px" width="200px">
+            <div class="card-body">
+              <h5 class="card-title"> <a class="card-title" href="{%url 'food-list' r.id%}">{{r.name}}</a></h5>
+             
+            </div>
+            <div class="card-footer">
+              <p class="text-body-secondary">{{r.address}}</p>
+            </div>
+          </div>
+        
+        </div>
+        {%endfor%}
+      </div>
+        
+      </div>
+     </div>
+
+      <!-- endtest sj -->
+
+
+  
+
+ 
+
+
+
+
+   
+
+      <!-- ============================================-->
+      <!-- footer<section> begin ============================-->
+      <section class="py-0 pt-7 bg-1000 mt-3">
+
+        <div class="container">
+          <div class="row justify-content-lg-between">
+            <h5 class="lh-lg fw-bold text-white">OUR TOP CITIES</h5>
+            <div class="col-6 col-md-4 col-lg-auto mb-3">
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">San Francisco</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Miami</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">San Diego</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">East Bay</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Long Beach</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-auto mb-3">
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Los Angeles</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Washington DC</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Seattle</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Portland</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Nashville</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-auto mb-3">
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">New York City</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Orange County</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Atlanta</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Charlotte</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Denver</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-auto mb-3">
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Chicago</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Phoenix</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Las Vegas</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Sacramento</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Oklahoma City</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-auto mb-3">
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Columbus</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">New Mexico</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Albuquerque</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Sacramento</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">New Orleans</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr class="text-900" />
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
+              <h5 class="lh-lg fw-bold text-white">COMPANY</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">About Us</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Team</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Careers</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">blog</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 col-lg-3 mb-3">
+              <h5 class="lh-lg fw-bold text-white">CONTACT</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Help &amp; Support</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Partner with us </a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Ride with us</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Ride with us</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
+              <h5 class="lh-lg fw-bold text-white">LEGAL</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Terms &amp; Conditions</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Refund &amp; Cancellation</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Privacy Policy</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Cookie Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
+              <h5 class="lh-lg fw-bold text-white">LEGAL</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Terms &amp; Conditions</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Refund &amp; Cancellation</a></li>
+                <li class="lh-lg"><a class="text-200 text-decoration-none" href="#!">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-8 col-lg-6 col-xxl-4">
+              <h5 class="lh-lg fw-bold text-500">FOLLOW US</h5>
+              <div class="col d-flex">
+                <span><i class="bx bxl-facebook-square"></i></span>
+                <span><i class="bx bxl-instagram-alt"></i></span>
+                <span><i class="bx bxl-github"></i></span>
+                <span><i class="bx bxl-twitter"></i></span>
+                <span><i class="bx bxl-pinterest"></i></span>
+              </div>
+              
+            </div>
+          </div>
+          <hr class="border border-800" />
+          <div class="row flex-center pb-3">
+            <div class="col-md-6 order-0">
+              <p class="text-200 text-center text-md-start">All rights Reserved &copy; Your Company, 2021</p>
+            </div>
+            
+          </div>
+        </div><!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="{%static 'vendors/@popperjs/popper.min.js'%}"></script>
+    <script src="{%static 'vendors/bootstrap/bootstrap.min.js'%}"></script>
+    <script src="{%static 'vendors/is/is.min.js'%}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="{%static 'vendors/fontawesome/all.min.js'%}"></script>
+    <script src="{%static 'assets/js/theme.js'%}"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  </body>
+
+</html>

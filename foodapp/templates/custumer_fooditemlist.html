@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Foodwagon & Business Template</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Boxicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Stylesheets -->
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet">
+
+    <style>
+        .food-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .food-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .description {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .btn-add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #0056b3;
+        }
+
+        .icons-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Content -->
+    <main class="main" id="top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mb-4" data-navbar-on-scroll="data-navbar-on-scroll">
+            
+            
+        </nav>
+        <section class="py-0 bg-primary-gradient ">
+            <div class="container mt-5">
+            
+                <h1 class="text-center mb-4">Food Items</h1>
+
+                <div class="icons-container">
+                    <a href="{%url 'custumer-home' %}"><i class="bx bx-home icon"></i></a>
+                    <a href="{%url 'cart-list'%}"><i class="bx bx-cart icon"></i></a>
+                </div>
+    
+                {% if data %}
+    
+    
+                
+                {% for food_item in data %}
+                {% if food_item not in cart %}
+                <form action="{% url 'add-to-cart' food_item.id %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="food-item">
+                        {% if food_item.image %}
+                        <img src="{{ food_item.image.url }}" alt="{{ food_item.name }}">
+                        {% endif %}
+                        <div class="content">
+                            
+                            <div class="name">{{ food_item.name }}</div>
+                            <div class="description">{{ food_item.description }}</div>
+                            <div class="price">${{ food_item.price }}</div>
+                            <button type="submit" class="btn btn-add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+                {% endfor %}
+                {% else %}
+                    <div class="no-food-items text-center">No food items available.</div>
+                {% endif %}
+            </div>
+        </section>
+        
+
+        <!-- Footer -->
+        <section class="py-0 pt-7 bg-1000 mt-3">
+            <!-- Footer content here -->
+        </section>
+    </main>
+
+    <!-- JavaScripts -->
+    <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/is/is.min.js' %}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+
+</html>
